@@ -1,16 +1,7 @@
 # chat_gpt
 
-A new Flutter project.
+An Open AI chatbot in  Flutter.
 
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## Links
+- [Youtube](https://www.youtube.com/watch?v=i8TE4BmG3l4&list=PL333BSi_KSQ_AqZQR98tAjxcXYMmPyr8E&index=2&ab_channel=CodingwithHadi)
+- [Github](https://github.com/hadikachmar3/chatGPT_flutter_course/)
