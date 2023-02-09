@@ -1,6 +1,7 @@
 
 //sful
 import 'package:chat_gpt/constants/constants.dart';
+import 'package:chat_gpt/services/api_service.dart';
 import 'package:chat_gpt/services/assets_manager.dart';
 import 'package:chat_gpt/services/services.dart';
 import 'package:chat_gpt/widgets/chat_widget.dart';
@@ -87,13 +88,19 @@ class _ChatScreenState extends State<ChatScreen> {
                             decoration: InputDecoration.collapsed(hintText: "How can I help you ?", hintStyle: TextStyle(color: Colors.grey)),
                           ),
                       ),
-                      IconButton(onPressed: (){}, icon: Icon(Icons.send, color: Colors.white,),),
+                      IconButton(onPressed: () async {
+                        try{
+                          await ApiService.getModels();
+                        }
+                        catch(error){
+                          print("Error $error");
+                        }
+                      }, icon: Icon(Icons.send, color: Colors.white,),),
                     ],
                   ),
                 ),
               ),
             ],
-
           ],
         ),
       ),
