@@ -2,6 +2,7 @@
 //sful
 import 'package:chat_gpt/constants/constants.dart';
 import 'package:chat_gpt/services/assets_manager.dart';
+import 'package:chat_gpt/widgets/chat_widget.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
@@ -53,7 +54,10 @@ class _ChatScreenState extends State<ChatScreen> {
                 child: ListView.builder(
                     itemCount: 6,
                     itemBuilder: (context, index){
-                      return Text("Hello, This is a dummy text");
+                      return ChatWidget(
+                        msg: chatMessages[index]["msg"].toString(),
+                        chatIndex: int.parse(chatMessages[index]["chatIndex"].toString()),
+                      );
                     }
                 ),
             ),
