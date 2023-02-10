@@ -4,6 +4,7 @@ import 'package:chat_gpt/services/assets_manager.dart';
 import 'package:chat_gpt/widgets/text_widget.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:animated_text_kit/animated_text_kit.dart';
 
 class ChatWidget extends StatelessWidget {
   const ChatWidget({Key? key, required this.msg, required this.chatIndex}) : super(key: key);
@@ -31,8 +32,26 @@ class ChatWidget extends StatelessWidget {
                   width: 8,
                 ),
                 Expanded(
-                    child: TextWidget(
+                    child: chatIndex == 0
+                        ?  TextWidget(
                         label: msg
+                    ) : DefaultTextStyle(
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontWeight: FontWeight.w700,
+                          fontSize: 16
+                        ),
+                        child: AnimatedTextKit(
+                          isRepeatingAnimation: false,
+                          repeatForever: false,
+                          displayFullTextOnTap: true,
+                          totalRepeatCount: 1,
+                          animatedTexts: [
+                            TyperAnimatedText(
+                                msg.trim(),
+                            ),
+                          ],
+                        )
                     )
                 ),
                 chatIndex == 0 ? SizedBox.shrink()
