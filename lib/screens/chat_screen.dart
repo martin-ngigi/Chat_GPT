@@ -128,7 +128,29 @@ class _ChatScreenState extends State<ChatScreen> {
   }
 
   Future<void> sendMessageFCT({required ModelsProvider modelsProvider, required ChatProvider chatProvider}) async {
-    print("Request has been sent");
+    if (_isTyping) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(
+          content: TextWidget(
+            label: "You cant send multiple messages at a time",
+          ),
+          backgroundColor: Colors.red,
+        ),
+      );
+      return;
+    }
+    if (textEditingController.text.isEmpty) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(
+          content: TextWidget(
+            label: "Please type a message",
+          ),
+          backgroundColor: Colors.red,
+        ),
+      );
+      return;
+    }
+
     try{
 
       setState(() {
@@ -152,6 +174,14 @@ class _ChatScreenState extends State<ChatScreen> {
     catch(error){
       //log("Error $error");
       print("Error $error");
+
+      //toast error
+      ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+        content: TextWidget(
+          label: error.toString(),
+        ),
+        backgroundColor: Colors.red,
+      ));
     }
     finally{
       setState(() {
